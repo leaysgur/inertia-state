@@ -9,6 +9,7 @@
     "build": "microbundle",
     "dev": "microbundle watch"
   },
+  "files": ["dist"],
   "version": "1.0.0",
   "description": "",
   "keywords": [
