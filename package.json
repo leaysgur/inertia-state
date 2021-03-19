@@ -1,0 +1,25 @@
+{
+  "name": "inertia-state",
+  "source": "src/index.ts",
+  "main": "dist/inertia-state.js",
+  "exports": "./dist/inertia-state.modern.js",
+  "module": "dist/inertia-state.module.js",
+  "unpkg": "dist/inertia-state.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "inertia",
+    "drag",
+    "scroll"
+  ],
+  "author": "Yuji Sugiura",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.13.0",
+    "typescript": "^4.2.3"
+  }
+}
