@@ -1,6 +1,6 @@
 {
   "name": "inertia-state",
-  "source": "src/index.ts",
+  "source": "src/inertia-state.ts",
   "main": "dist/inertia-state.js",
   "exports": "./dist/inertia-state.modern.js",
   "module": "dist/inertia-state.module.js",
@@ -9,7 +9,9 @@
     "build": "microbundle",
     "dev": "microbundle watch"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "version": "1.0.0",
   "description": "",
   "keywords": [
