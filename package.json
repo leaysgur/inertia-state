@@ -2,7 +2,6 @@
   "name": "inertia-state",
   "source": "src/inertia-state.ts",
   "main": "dist/inertia-state.js",
-  "exports": "./dist/inertia-state.modern.js",
   "module": "dist/inertia-state.module.js",
   "unpkg": "dist/inertia-state.umd.js",
   "scripts": {
