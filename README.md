@@ -74,3 +74,34 @@ iState.addCallback((ev) => {
 ```
 
 See https://leader22.github.io/inertia-state/ to check how it works.
+
+### w/ 🤞 `react-use-gesture`
+
+```js
+import { useRef, useEffect } from "react";
+import { useDrag } from "react-use-gesture";
+import { InertiaState } from "inertia-state";
+
+const inertiaState = useRef(new InertiaState());
+
+useDrag((state) => {
+  // handle drag...
+
+  // 1️⃣ update inertia state
+  if (state.first) inertiaState.current.start(state.movement);
+  inertiaState.current.update(state.movement);
+  if (state.last) inertiaState.current.stop();
+});
+
+useEffect(() => {
+  const iState = inertiaState.current;
+  const dispose = iState.addCallback(({ delta, movement }) =>
+    // 2️⃣ apply inertia here
+  );
+
+  return () => {
+    dispose();
+    iState.reset();
+  };
+}, [inertiaState]);
+```
