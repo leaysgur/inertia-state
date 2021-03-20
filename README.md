@@ -20,8 +20,6 @@ or
 ## Example
 
 ```js
-const $box = document.getElementById("box");
-
 //
 // Usual drag implementation
 //
@@ -29,6 +27,8 @@ const state = {
   position: [100, 200],
   dragging: false,
 };
+
+const $box = document.getElementById("box");
 const rect = $box.getBoundingClientRect();
 
 $box.addEventListener("pointerdown", ({ clientX, clientY }) => {
@@ -75,7 +75,7 @@ iState.addCallback((ev) => {
 
 See https://leader22.github.io/inertia-state/ to check how it works.
 
-### w/ 🤞 `react-use-gesture`
+### Usage w/ [`react-use-gesture`](https://github.com/pmndrs/react-use-gesture)
 
 ```js
 import { useRef, useEffect } from "react";
