@@ -12,7 +12,7 @@
     "dist"
   ],
   "version": "1.0.2",
-  "description": "",
+  "description": "Minimum state manager for moment of inertia.",
   "keywords": [
     "inertia",
     "drag",

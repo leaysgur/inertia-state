@@ -2,22 +2,33 @@
 
 Minimum state manager for moment of inertia.
 
+- 0 dependencies
+- Platform agnostic
+- About 100 lines of code
+
 ## Install
 
 ```
 npm i inertia-state
+```
+```js
+import { InertiaState } from "inertia-state"
 ```
 
 or
 
 ```html
 <script src="https://unpkg.com/inertia-state/dist/inertia-state.umd.js"></script>
+```
+```html
 <script>
   const { InertiaState } = window.inertiaState;
 </script>
 ```
 
 ## Example
+
+See https://leader22.github.io/inertia-state/ to check how it works.
 
 ```js
 //
@@ -53,7 +64,7 @@ $box.addEventListener("pointerup", () => {
 })();
 
 //
-// + Inertia movement
+// + Inertia movement 🙌
 //
 const iState = new InertiaState();
 
@@ -72,8 +83,6 @@ iState.addCallback((ev) => {
   state.position[1] += ev.delta[1];
 });
 ```
-
-See https://leader22.github.io/inertia-state/ to check how it works.
 
 ### Usage w/ [`react-use-gesture`](https://github.com/pmndrs/react-use-gesture)
 
@@ -105,3 +114,7 @@ useEffect(() => {
   };
 }, [inertiaState]);
 ```
+
+## Thanks
+
+- https://github.com/yomotsu/inertia-drag
