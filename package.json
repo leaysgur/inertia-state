@@ -21,7 +21,7 @@
   "author": "Yuji Sugiura",
   "license": "MIT",
   "devDependencies": {
-    "microbundle": "^0.13.0",
-    "typescript": "^4.2.3"
+    "microbundle": "^0.13.3",
+    "typescript": "^4.4.2"
   }
 }
