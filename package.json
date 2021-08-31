@@ -11,7 +11,7 @@
   "files": [
     "dist"
   ],
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Minimum state manager for moment of inertia.",
   "keywords": [
     "inertia",
