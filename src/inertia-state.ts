@@ -70,6 +70,8 @@ export class InertiaState {
     this.movement[1] = 0;
     this.velocity[0] = 0;
     this.velocity[1] = 0;
+    this.moveDelta[0] = 0;
+    this.moveDelta[1] = 0;
   }
 
   private updateVelocity() {
