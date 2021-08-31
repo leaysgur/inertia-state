@@ -7,6 +7,7 @@ export type InertiaEvent = {
 
 export type InertiaStateInit = {
   coefficient?: number;
+  minTimeToMove?: number;
 };
 
 const approxZero = (v: number): boolean => Math.abs(v) < 0.001;
@@ -16,6 +17,10 @@ export class InertiaState {
   private timer: NodeJS.Timeout | null = null;
   private callbacks: Set<(ev: InertiaEvent) => void> = new Set();
 
+  // start > stop happens immediately, it should be ignored(maybe TAP event)
+  private lastStarted = 0;
+  private moveShouldBeIgnored = false;
+
   private lastMove: Vector2 = [0, 0];
   private moveDelta: Vector2 = [0, 0];
   private lastMoveDelta: Vector2 = [0, 0];
@@ -24,9 +29,11 @@ export class InertiaState {
   private velocity: Vector2 = [0, 0];
 
   frictionCoefficient: number;
+  minTimeToMove: number;
 
   constructor(init?: InertiaStateInit) {
     this.frictionCoefficient = init?.coefficient ?? 0.85;
+    this.minTimeToMove = init?.minTimeToMove ?? 10;
   }
 
   addCallback(callback: (ev: InertiaEvent) => void): () => void {
@@ -39,6 +46,9 @@ export class InertiaState {
 
   start([moveX, moveY]: Vector2): void {
     this.updating = true;
+
+    this.lastStarted = performance.now();
+    this.moveShouldBeIgnored = false;
 
     this.lastMove[0] = moveX;
     this.lastMove[1] = moveY;
@@ -61,6 +71,10 @@ export class InertiaState {
 
   stop(): void {
     this.updating = false;
+
+    if (performance.now() - this.lastStarted < this.minTimeToMove) {
+      this.moveShouldBeIgnored = true;
+    }
   }
 
   reset(): void {
@@ -79,6 +93,7 @@ export class InertiaState {
       approxZero(this.velocity[1])
     )
       return;
+    if (this.moveShouldBeIgnored) return;
 
     this.timer = setTimeout(() => this.updateVelocity(), 1000 / 60);
 
