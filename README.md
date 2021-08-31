@@ -26,6 +26,20 @@ or
 </script>
 ```
 
+## Options
+
+```js
+new InertiaState({
+  coefficient: 0.5,
+  minTimeToMove: 15,
+});
+```
+
+| name          | description                                                                            | required | default |
+| ------------- | -------------------------------------------------------------------------------------- |:--------:| ------- |
+| coefficient   | Friction coefficient.                                                                  |  false   | 0.85    |
+| minTimeToMove | The minimum time(sub-ms) from `start` > `stop`, determined that movement has occurred. |  false   | 10      |
+
 ## Example
 
 See https://leader22.github.io/inertia-state/ to check how it works.
